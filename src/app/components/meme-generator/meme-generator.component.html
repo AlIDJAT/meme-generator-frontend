@@ -1,0 +1,24 @@
+<div class="meme-generator">
+    <h2>Générateur de Mèmes</h2>
+
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" class="file-input">
+
+    <mat-form-field appearance="fill" class="meme-field">
+      <mat-label>Texte du haut</mat-label>
+      <input matInput [(ngModel)]="topText">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="meme-field">
+      <mat-label>Texte du bas</mat-label>
+      <input matInput [(ngModel)]="bottomText">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="createMeme()" class="meme-button">Créer le Mème</button>
+    <button mat-raised-button color="accent" (click)="downloadMeme()" class="meme-button">Télécharger le Mème</button>
+
+    <div id="meme-preview" class="meme-container" *ngIf="imageUrl">
+      <img [src]="imageUrl">
+      <div class="top-text">{{ topText }}</div>
+      <div class="bottom-text">{{ bottomText }}</div>
+    </div>
+</div>

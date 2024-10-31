@@ -1,0 +1,14 @@
+<div class="meme-gallery">
+    <h2>Galerie de Mèmes</h2>
+    <div class="gallery">
+      <div *ngFor="let meme of paginatedMemes" class="meme-item">
+        <div class="meme-container">
+          <img [src]="meme.imageUrl" alt="Meme">
+          <div class="top-text">{{ meme.topText }}</div>
+          <div class="bottom-text">{{ meme.bottomText }}</div>
+        </div>
+      </div>
+    </div>
+    <mat-paginator [length]="memes.length" [pageSize]="pageSize" (page)="onPageChange($event)">
+    </mat-paginator>
+</div>
